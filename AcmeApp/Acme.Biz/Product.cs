@@ -36,9 +36,10 @@ namespace Acme.Biz
 
         public string Description
         {
-            get { return Description; }
-            set { Description = value; }
+            get { return description; }
+            set { description = value; }
         }
+        
         private int productId;
 
         public int ProductId

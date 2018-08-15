@@ -15,10 +15,12 @@ namespace Acme.Biz.Tests
         public void SayHelloTest()
         {
             //Arrange
-            var currentProduct = new Product();
-            currentProduct.ProductName = "Saw";
-            currentProduct.ProductId = 1;
-            currentProduct.Description = "15-inch steel blade hand saw";
+            var currentProduct = new Product
+            {
+                ProductName = "Saw",
+                ProductId = 1,
+                Description = "15-inch steel blade hand saw"
+            };
             var expected = "Hello Saw (1): 15-inch steel blade hand saw";
 
             //Act
@@ -27,11 +29,17 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        private object Description(string v)
+        {
+            throw new NotImplementedException();
+        }
+
         [TestMethod()]
         public void SayHello_ParameterizedConstructor()
         {
             //Arrange
-            var currentProduct = new Product(1, "saw", "15-inch steel blade hand saw");
+            var currentProduct = new Product(1, "Saw", "15-inch steel blade hand saw");
             var expected = "Hello Saw (1): 15-inch steel blade hand saw";
 
             //Act
