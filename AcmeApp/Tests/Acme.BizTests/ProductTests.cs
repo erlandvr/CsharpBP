@@ -136,5 +136,60 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod()]
+        public void ProductName_TooShort()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.ProductName = "aw";
+
+            string expected = null;
+            string expectedMessage = "Product name must be at least 3 characters.";
+
+            //Act
+            var actual = currentProduct.ProductName;
+            var actualMessage = currentProduct.validationMessage;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
+        [TestMethod()]
+        public void ProductName_TooLong()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.ProductName = "thiswordislongerthan20characters";
+
+            string expected = null;
+            string expectedMessage = "Product name cannot be more than 20 charachers.";
+
+            //Act
+            var actual = currentProduct.ProductName;
+            var actualMessage = currentProduct.validationMessage;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
+
+        [TestMethod()]
+        public void ProductName_RightSize()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.ProductName = "Name OK";
+
+            string expected = "Name OK";
+            string expectedMessage = null;
+
+            //Act
+            var actual = currentProduct.ProductName;
+            var actualMessage = currentProduct.validationMessage;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
     }
 }
