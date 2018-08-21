@@ -95,5 +95,33 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod()]
+        public void RetrieveMinimumPriceTest()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            var expected = .96m;
+
+            //Act
+            var actual = currentProduct.MinimumPrice;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod()]
+        public void RetrieveMinimumPriceTest_Bulk()
+        {
+            //Arrange
+            var currentProduct = new Product(1, "Bulk Tools", "very bulky");
+            var expected = 9.99m;
+
+            //Act
+            var actual = currentProduct.MinimumPrice;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
