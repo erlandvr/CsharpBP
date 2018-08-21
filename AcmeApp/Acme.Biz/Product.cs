@@ -53,7 +53,12 @@ namespace Acme.Biz
 
         public string ProductName
         {
-            get { return productName; }
+            get {
+                //Remove exces spaces from the beginning and ending of productName
+                //We use the "?" nullconditional operator to set formattedValue to "null" when productname is "null".
+                var formattedValue = productName?.Trim();  
+                return formattedValue;
+            }
             set { productName = value; }
         }
         private string description;
@@ -76,7 +81,9 @@ namespace Acme.Biz
         public Vendor ProductVendor
         {
             get {
+                //Check wether backing fiels is null
                 if (productVendor == null)
+                    //Lazy loading
                     {
                     productVendor = new Vendor();
                     }
