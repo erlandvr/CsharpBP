@@ -22,6 +22,7 @@ namespace Acme.Biz
             Console.WriteLine("Product instance created");
             //this.productVendor = new Vendor();
             this.MinimumPrice = .96m;
+            this.Category = "Tools";
         }
         public Product(int productId,
                         string productName,
@@ -63,10 +64,10 @@ namespace Acme.Biz
             {
                 if (value.Length < 3)
                 {
-                    validationMessage = "Product name must be at least 3 characters.";
+                    ValidationMessage = "Product name must be at least 3 characters.";
                 }
                 else if (value.Length > 20)
-                    validationMessage = "Product name cannot be more than 20 charachers.";
+                    ValidationMessage = "Product name cannot be more than 20 charachers.";
                 else
                 {
                     ProductName = value;
@@ -93,7 +94,7 @@ namespace Acme.Biz
         public Vendor ProductVendor
         {
             get {
-                //Check wether backing fiels is null
+                //Check wether backing field is null
                 if (productVendor == null)
                     //Lazy loading
                     {
@@ -103,8 +104,10 @@ namespace Acme.Biz
             }
             set { productVendor = value; }
         }
-
-        public string validationMessage { get; private set; }
+        public string Category { get; set; }
+        public int SequenceNumber { get; set; } = 1;
+        
+        public string ValidationMessage { get; private set; }
 
         #endregion
 
