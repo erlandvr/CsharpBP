@@ -20,3 +20,4 @@
         public string Message { get; set; }
     }
 }
+//Using an object from this class provides us the ability to return multiple results from any method
