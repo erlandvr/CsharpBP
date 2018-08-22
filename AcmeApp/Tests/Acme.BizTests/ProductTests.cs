@@ -248,7 +248,21 @@ namespace Acme.Biz.Tests
             var actual = currentProduct.SequenceNumber;
 
             //Assert
-            Assert.AreEqual(expected, actual);        
+            Assert.AreEqual(expected, actual);            
+        }
+        [TestMethod()]
+        public void ProductCode_DefaultValue()
+        {
+            //Arrange
+            var currentProduct = new Product();
+
+            var expected = "Tools-1";
+
+            //Act
+            var actual = currentProduct.ProductCode;
+
+            //Assert
+            Assert.AreEqual(actual, expected);
         }
     }
 }
