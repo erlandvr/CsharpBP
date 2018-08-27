@@ -116,8 +116,8 @@ namespace Acme.Biz.Tests
             //Act
             var actual = vendor.PlaceOrder(
                 product, 12,
-                includeAddress: true,
-                sendCopy: false);
+                Vendor.IncludeAddress.Yes,
+                Vendor.SendCopy.No);
 
             //Assert
             Assert.AreEqual(expected.Success, actual.Success);
