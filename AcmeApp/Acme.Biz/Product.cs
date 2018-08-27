@@ -70,7 +70,7 @@ namespace Acme.Biz
                     ValidationMessage = "Product name cannot be more than 20 charachers.";
                 else
                 {
-                    ProductName = value;
+                    productName = value;
                 }
             }
         }
@@ -127,6 +127,9 @@ namespace Acme.Biz
                 " (" + ProductId + "): " +
                 Description + " Available on: " + AvailabilityDate?.ToShortDateString();
         }
-
+        public override string ToString()
+        {
+            return this.ProductName + " (" + this.productId + ")";
+        }
     }
 }
