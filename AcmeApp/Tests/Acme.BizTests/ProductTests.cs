@@ -219,7 +219,7 @@ namespace Acme.Biz.Tests
             var actual = currentProduct.Category;
 
             //Assert
-            Assert.AreEqual(expected, actual);       
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod()]
         public void Sequence_DefaultValue()
@@ -248,7 +248,7 @@ namespace Acme.Biz.Tests
             var actual = currentProduct.SequenceNumber;
 
             //Assert
-            Assert.AreEqual(expected, actual);            
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod()]
         public void ProductCode_DefaultValue()
@@ -263,6 +263,20 @@ namespace Acme.Biz.Tests
 
             //Assert
             Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod()]
+        public void CalculateSuggestedPriceTest()
+        {
+            //Arrange
+            var currentProduct = new Product(1, "Saw", "");
+            currentProduct.Cost = 50m;
+            var expected = 55m;
+
+            //Act
+            var actual = currentProduct.CalculateSuggestedPrice(10m);
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
