@@ -128,7 +128,7 @@ namespace Acme.Biz.Tests
         {
             //Arrange
             var currentProduct = new Product(1, " Hammer ", "smashy");
-            var expected = "Hammer";
+            string expected = "Hammer";
 
             //Act
             var actual = currentProduct.ProductName;
