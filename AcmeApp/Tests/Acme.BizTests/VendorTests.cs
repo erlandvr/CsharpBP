@@ -135,5 +135,21 @@ namespace Acme.Biz.Tests
             Assert.AreEqual(expected.Success, actual.Success);
             Assert.AreEqual(expected.Message, actual.Message);
         }
+
+        [TestMethod()]
+        public void ToStringTest()
+        {
+            //Arrange
+            var vendor = new Vendor();
+            vendor.VendorId = 1;
+            vendor.CompanyName = "ABC Corp";
+            var expected = "Vendor: ABC Corp";
+
+            //Act
+            var actual = vendor.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
