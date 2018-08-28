@@ -147,7 +147,6 @@ namespace Acme.Biz.Tests
 
             //Act
             var actual = vendor.ToString();
-
             //Assert
             Assert.AreEqual(expected, actual);
         }
