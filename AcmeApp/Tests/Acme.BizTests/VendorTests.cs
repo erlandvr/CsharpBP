@@ -80,7 +80,7 @@ namespace Acme.Biz.Tests
             //Arrange
             var vendor = new Vendor();
             var product = new Product(1, "Saw", "got teeth");
-            var expected = new OperationResult(true, "Order from acme, Inc\r\nProduct: Tools-0001\r\nQuantity: 12" + "\r\nDeliver By: 10/25/2030 12:00:00 AM -07:00" + "\r\nInstructions: standard delivery");
+            var expected = new OperationResult(true, "Order from acme, Inc\r\nProduct: Tools-0001\r\nQuantity: 12" + "\r\nDeliver By: 10/25/2030" + "\r\nInstructions: standard delivery");
 
             //Act
             var actual = vendor.PlaceOrder(product, 12, new DateTimeOffset(2030, 10, 25, 0, 0, 0, new TimeSpan(-7, 0, 0)));
